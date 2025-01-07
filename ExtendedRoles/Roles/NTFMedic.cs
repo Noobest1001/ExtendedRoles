@@ -31,6 +31,7 @@ namespace ExtendedRoles.Roles
           $"{ItemType.KeycardNTFLieutenant}",
           $"{ItemType.Radio}",
           $"{ItemType.Medkit}",
+          "Potent Adrenaline"
           $"{ItemType.ArmorCombat}"
        };
 

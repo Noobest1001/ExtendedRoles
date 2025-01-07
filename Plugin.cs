@@ -5,9 +5,9 @@ using System;
 using Map = Exiled.Events.Handlers.Map;
 using Server = Exiled.Events.Handlers.Server;
 using Player = Exiled.Events.Handlers.Player;
-using SerpentsHand.Configs;
+using ExtendedRoles.Configs;
 
-namespace SerpentsHand
+namespace ExtendedRoles
 {
     public class Plugin : Plugin<Config>
 	{
@@ -26,9 +26,9 @@ namespace SerpentsHand
 		public override void OnEnabled()
 		{
 			Instance = this;
-			Config.SerpentsHand.Register();
-			Config.SerpentsHandSpecialist.Register();
-			Config.SerpentsHandLeader.Register();
+			Config.ExtendedRoles.Register();
+			Config.NTFMedic.Register();
+			Config.NTFGhost.Register();
 			eventHandlers = new EventHandlers(this);
 
 			Server.RoundStarted += eventHandlers.OnRoundStarted;
