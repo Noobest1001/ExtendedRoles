@@ -20,7 +20,14 @@ public class Anti049 : CustomItem
 
     public void OnUsingItem(UsingItemEventArgs ev)
     {
-        if(!Check(ev.Item)) return;
+        ev.IsAllowed = false
+        if(ev.Player.Role.Team != Team.SCP)
+        {
+            ev.IsAllowed = true;
+            ev.Player.EnableEffect(EffectType.Invigorated, 1 );
+            ev.Player.RemoveEffect(EffectType.CardiacArrest);
+        } 
+
         
     }
 }
