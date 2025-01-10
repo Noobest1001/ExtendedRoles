@@ -17,11 +17,11 @@ namespace ExtendedRoles.Roles
     [CustomRole(RoleTypeId.NtfSpecialist)]
     public class ExtendedRoles : CustomRole
     {
-        public override uint Id { get; set; } = 21;
+        public override uint Id { get; set; } = 801;
         public override RoleTypeId Role { get; set; } = RoleTypeId.NtfSpecialist;
         public override int MaxHealth { get; set; } = 100;
         public override string Name { get; set; } = "NTF Medic";
-        public override string Description { get; set; } = "Help secure the Site-02";
+        public override string Description { get; set; } = "Help secure the Site-02 by using your special ability";
         public override string CustomInfo { get; set; } = "NTF Medic";
         public override bool IgnoreSpawnSystem { get; set; } = false;
 

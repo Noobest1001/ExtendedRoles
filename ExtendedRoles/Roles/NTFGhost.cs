@@ -17,7 +17,7 @@ namespace ExtendedRoles.Roles
     [CustomRole(RoleTypeId.NtfSpecialist)]
     public class ExtendedRoles : CustomRole
     {
-        public override uint Id { get; set; } = 22;
+        public override uint Id { get; set; } = 800;
         public override RoleTypeId Role { get; set; } = RoleTypeId.NtfSpecialist;
         public override int MaxHealth { get; set; } = 100;
         public override string Name { get; set; } = "NTF Ghost";

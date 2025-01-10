@@ -13,8 +13,8 @@ namespace ExtendedRoles
 	{
 		public override string Name => "ExtendedRoles";
 		public override string Author => "Noobest1001";
-		public override Version RequiredExiledVersion => new(9, 1, 1);
-		public override Version Version => new(9, 0, 3);
+		public override Version RequiredExiledVersion => new(9, *, *);
+		public override Version Version => new(1, 0, 0);
 
 		public static Plugin Instance;
 
@@ -34,7 +34,6 @@ namespace ExtendedRoles
 			Server.RoundStarted += eventHandlers.OnRoundStarted;
 			Server.RespawningTeam += eventHandlers.OnRespawningTeam;
 			Server.EndingRound += eventHandlers.OnEndingRound;
-			Map.AnnouncingChaosEntrance += eventHandlers.OnAnnouncingChaosEntrance;
 			//Player.Spawned += eventHandlers.OnSpawned;
 			
 			base.OnEnabled();
@@ -46,12 +45,19 @@ namespace ExtendedRoles
 			Server.RoundStarted -= eventHandlers.OnRoundStarted;
 			Server.RespawningTeam -= eventHandlers.OnRespawningTeam;
 			Server.EndingRound -= eventHandlers.OnEndingRound;
-			Map.AnnouncingChaosEntrance -= eventHandlers.OnAnnouncingChaosEntrance;
 			//Player.Spawned -= eventHandlers.OnSpawned;
 
 			eventHandlers = null;
 			Instance = null;
 			base.OnDisabled();
+		}
+		
+		private void OnSpawnWave(RespawningTeamEventArgs ev)
+		{
+			if(ev.NextKnownTeam == Respawning.SpawnableTeamType.NineTailedFox && Config.ERspawn)
+			{
+				foreach()
+			}
 		}
 	}
 }
