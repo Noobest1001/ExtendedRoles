@@ -14,6 +14,12 @@ namespace ExtendedRoles.Config
         [Description("Weather the Custom Role are allowed to spawn")]
         public bool ERspawn = true;
 
+        public A_Anesthetic Camniste {get; set;} = new();
+        public Anti049 Anti049 {get; set;} = new();
+        public Roles.NTFGhost NTFGhost {get; set;} = new();
+        public Roles.NTFMedic NTFMedic {get; set;} = new();
+        public Abilities.MedMist MedMist {get; set;} = new();
+
         
     }
 }
