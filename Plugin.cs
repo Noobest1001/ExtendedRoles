@@ -54,9 +54,10 @@ namespace ExtendedRoles
 		
 		private void OnSpawnWave(RespawningTeamEventArgs ev)
 		{
-			if(ev.NextKnownTeam == Respawning.SpawnableTeamType.NineTailedFox && Config.ERspawn)
+			if(ev.NextKnownTeam == 1 && Config.ERspawn)
 			{
-				foreach()
+				List<Player> mtfPlayers = ev.Players.ToList();
+				
 			}
 		}
 	}
