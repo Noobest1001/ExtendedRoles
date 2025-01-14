@@ -1,7 +1,7 @@
 using Exiled.API.Interface;
 using System.ComponentModel;
 
-namespace ExtendedRoles.Config
+namespace ExtendedConfig
 {
     public sealed class Config: IConfig
     {
@@ -19,8 +19,11 @@ namespace ExtendedRoles.Config
 
         public A_Anesthetic Camniste {get; set;} = new();
         public Anti049 Anti049 {get; set;} = new();
-        public Roles.NTFGhost NTFGhost {get; set;} = new();
-        public Roles.NTFMedic NTFMedic {get; set;} = new();
+        public NTFGhost NTFGhost {get; private set;} = new();
+        public NTFMedic NTFMedic {get; private set;} = new();
+        public Alpha_0Captain Alpha_0Captain {get; private set;} = new();
+        public Alpha_0Private Alpha_0Private {get; private set;} = new();
+        public Alpha_0Sargent Alpha_0Sargent {get; private set;} = new();
         public Abilities.MedMist MedMist {get; set;} = new();
 
         

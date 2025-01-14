@@ -17,8 +17,9 @@ namespace ExtendedRoles.Configs
         public int MaxSquad { get; private set; } = 31;
 
         [Description("Alpha 0 entrance Cassie Message")]
-        public string Aph0AnnouncementCassie { get; private set; } = "By order of the O 5 Council MTFUnit alpha 0 designated {designation} HasEntered AllRemaining AwaitingRecontainment {scpnum}";
-        public string RRRAnnouncmentCassieNoScp { get; private set; } = "By order of the O 5 Council MTFUnit alpha 0 designated {designation} HasEntered AllRemaining NoSCPsLeft";
+        public string Aph0AnnouncementCassie { get; private set; } = "By order of the O5 Council MTFUnit alpha 0 designated {designation} has been authorized and activated AllRemaining AwaitingRecontainment {scpnum}";
+        public string RRRAnnouncmentCassieNoScp { get; private set; } = "By order of the O5 Council MTFUnit alpha 0 designated {designation} has been authorized and activated AllRemaining NoSCPsLeft";
+        
         [Description("NTF entrance Cassie Message (leave empty to use default NTF cassie entrance)")]
         public string NtfAnnouncementCassie { get; private set; } = "MTFUnit epsilon 11 designated {designation} hasentered AwaitingRecontainment {scpnum}";
         public string NtfAnnouncmentCassieNoScp { get; private set; } = "MTFUnit epsilon 11 designated {designation} hasentered NoSCPsLeft";
@@ -32,10 +33,10 @@ namespace ExtendedRoles.Configs
         [Description("Cassie Text Espilon-11 No SCPs")]
         public string CassieTextMtfNoSCPs { get; private set; } = "Mobile Task Force Unit Espilon-11, designated {designation} has entered the facility. All remaining personnel are advised to proceed with standard evaction protocols until a MTF squad reaches your destination. Substantial threat remains within the facility - exercise caution.";
 
-        [Description("Cassie Text alpha 0 SCPs")]
-        public string CassieTextUiuSCPs { get; private set; } = "By order of the 05-Council, Mobile Task Force Unit Alpha-0 , designated {designation} has entered the facility. Awaiting recontainment of {scpnum}";
+        [Description("Cassie Text Alpha 0 SCPs")]
+        public string CassieTextUiuSCPs { get; private set; } = "By order of the 05-Council, Mobile Task Force Unit Alpha-0, designated {designation} has been authorized and activated. Awaiting recontainment of {scpnum}";
 
-        [Description("Cassie Text alpha 0 No SCPs")]
-        public string CassieTextUiuNoSCPs { get; private set; } = "By order of the 05-Council, Mobile Task Force Unit Alpha-0, designated {designation} has entered the facility. Substantial threat remains within the facility - exercise caution.";
+        [Description("Cassie Text Alpha 0 No SCPs")]
+        public string CassieTextUiuNoSCPs { get; private set; } = "By order of the 05-Council, Mobile Task Force Unit Alpha-0, designated {designation} has been authorized and activated. Substantial threat remains within the facility - exercise caution.";
     }
 }

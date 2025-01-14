@@ -15,24 +15,25 @@ namespace ExtendedRoles.Abilities
         private const float Healing = 50f;
         private const float Duration {get; set;} = 1f;
         private const float Radius = 5f;
-        private const float Cooldown {get; set;} = 60f;
+        private const float Cooldown {get; set;} = 180f;
         private Dictionary<Player, CoroutineHandle> activeAbilities = new Dictionary<Player, CoroutineHandle>();
+        public Dictionary<EffectType, byte> Effects {get; set;} = new Dictionary<EffectType, byte>();
+        {
+            {EnableEffect(EffectTypeId.Vitality, 10)},
+            {EnableEffect(EffectTypeId.Scp1853, 5)}
+        }
 
         public override void Activate(Player player)
         {
             if(activeAbilities.ContainsKey(player))
                 return;
 
-            List<player> Players = new List<player>();
             foreach(Player player in Player.list)
             {
                 try{
                     if((Vector3.Distance(player.Position, center) <= Radius) && player.Team != Team.SCP)
                     {
-                        Players.Add(player);
                         player.Health += HealAmount;
-                        player.EnableEffect(EffectTypeId.Vitality, 10);
-                        player.EnableEffect(EffectTypeId.Scp1853, 5);
 
                         Log.Info($"{player} was healed for {Healing}.\n");
                     }
@@ -50,12 +51,6 @@ namespace ExtendedRoles.Abilities
             if (!activeAbilities.ContainsKey(player))
                 return;
 
-            foreach(Player player in List<player>)
-            {
-                player.DisableEffect(EffectTypeId.Vitality);
-                player.DisableEffect(EffectTypeId.Scp1853);
-                Players.Clear();
-            }
 
             Timing.KillCoroutines(activeAbilities[player]);
             activeAbilities.Remove(player);

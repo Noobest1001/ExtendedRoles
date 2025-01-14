@@ -7,15 +7,15 @@ using System.Collections.Generic;
 
 namespace ExtendedRoles.Roles
 {
-    [CustomRole(RoleTypeId.NtfPrivate)]
-    public class Aph0Private : CustomRole
+    [CustomRole(RoleTypeId.NtfCaptain)]
+    public class Alpha_0Captain : CustomRole
     {
         public override uint Id { get; set; } = 14;
-        public override RoleTypeId Role { get; set; } = RoleTypeId.NtfPrivate;
+        public override RoleTypeId Role { get; set; } = RoleTypeId.NtfCaptain;
         public override int MaxHealth { get; set; } = 125;
-        public override string Name { get; set; } = "Alpha-0 Private";
+        public override string Name { get; set; } = "Alpha-0 Captain";
         public override string Description { get; set; } = "The 05 has ordered you to regain control of the site";
-        public override string CustomInfo { get; set; } = "Alpha-0 Private";
+        public override string CustomInfo { get; set; } = "Alpha-0 Captain";
         public override bool IgnoreSpawnSystem { get; set; } = true; 
 
         public override List<string> Inventory { get; set; } = new()
