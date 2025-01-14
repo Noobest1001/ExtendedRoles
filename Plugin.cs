@@ -13,7 +13,7 @@ namespace ExtendedRoles
 	{
 		public override string Name => "ExtendedRoles";
 		public override string Author => "Noobest1001";
-		public override Version RequiredExiledVersion => new(9, *, *);
+		public override Version RequiredExiledVersion => new(9, 2, 1);
 		public override Version Version => new(1, 0, 0);
 
 		public static Plugin Instance;
