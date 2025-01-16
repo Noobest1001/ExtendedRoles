@@ -35,7 +35,7 @@ namespace ExtendedRoles.Roles
             {
                 new()
                 {
-                    Role = RoleTypeId.NtfPrivate,
+                    Role = RoleTypeId.NtfSergeant,
                     Chance = 100
                 }
             }
