@@ -27,8 +27,14 @@ namespace ExtendedRoles
 		{
 			Instance = this;
 			Config.ExtendedRoles.Register();
+   			Config.Camniste.Register();
+			Config.Anti049.Register();
 			Config.NTFMedic.Register();
 			Config.NTFGhost.Register();
+   			Config.Alpha_0Captain.Register();
+      		Config.Alpha_0Sargent.Register();
+	 		Config.Alpha_0Private.Register();
+			eventHandlers = new EventHandlers(this);
 			eventHandlers = new EventHandlers(this);
 
 			Server.RoundStarted += eventHandlers.OnRoundStarted;

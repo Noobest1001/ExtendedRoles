@@ -2,6 +2,7 @@ using Exiled.API.Features;
 using Exiled.API.Enums;
 using Exiled.CustomRoles.API.Features;
 using PlayerRoles;
+using UnityEngine;
 using Exiled.Events.EventArgs;
 using System.Collections.Generic;
 using Exiled.CustomRoles.API.Features;
@@ -11,49 +12,40 @@ namespace ExtendedRoles.Abilities
 {
     public class MedMist : Ability
     {
-        public string Name = "Nano-Machines"
-        private const float Healing = 50f;
+        public string Name {get; set;} = "Nano-Machines"
+        public string Description {get; set;} = "[Redacted] of nano-machines are let go and activly seek out biological matter in a 5 meter radius and heal them"
         private const float Duration {get; set;} = 1f;
-        private const float Radius = 5f;
+        private const float Radius = 100f;
         private const float Cooldown {get; set;} = 180f;
+        [Description("The Amount of healing that should be dealt to players in a range")]
+        private const float Healing = 50f;
+        private readonly List<CoroutineHandle> coroutines = new ();
         private Dictionary<Player, CoroutineHandle> activeAbilities = new Dictionary<Player, CoroutineHandle>();
-        public Dictionary<EffectType, byte> Effects {get; set;} = new Dictionary<EffectType, byte>();
+        public Dictionary<EffectType, byte> FEffects {get; set;} = new Dictionary<EffectType, byte>();
         {
-            {EnableEffect(EffectTypeId.Vitality, 10)},
-            {EnableEffect(EffectTypeId.Scp1853, 5)}
+            {EffectType.Vitality, 10, true},
+            {EffectType.Scp1853, 5, true}
         }
 
-        public override void Activate(Player player)
+        public Dictionary<EffectType, byte> HEffects {get; set;} = new Dictionary<EffectType, byte>();
         {
-            if(activeAbilities.ContainsKey(player))
-                return;
+            {EffectType.Vitality, 5, true},
+            {EffectType.Scp1853, 2 ,true}
+        }
 
-            foreach(Player player in Player.list)
+        private void Activate(Player player)
+        {
+            foreach(Player player0 in Player.List)
             {
-                try{
-                    if((Vector3.Distance(player.Position, center) <= Radius) && player.Team != Team.SCP)
-                    {
-                        player.Health += HealAmount;
-
-                        Log.Info($"{player} was healed for {Healing}.\n");
-                    }
-                }
-                catch(Exception e){
-                    Log.Error($"A fatal error occured: {e}\n")
+                if((Vector3.Distance(player.Position, center) <= Radius) && player.RoleTypeId != RoleTypeId.SCP173)
+                {
+                    coroutine.Add(Timeing.RunCoroutine(Ability(player)));
+                    continue;
+                    
                 }
             }
-            CoroutineHandle coroutine = Timing.CallDelayed(Duration, () => Deactivate(player));
-            activeAbilities.Add(player, coroutine);
         }
 
-        public override void Deactivate(Player player)
-        {
-            if (!activeAbilities.ContainsKey(player))
-                return;
 
-
-            Timing.KillCoroutines(activeAbilities[player]);
-            activeAbilities.Remove(player);
-        }
     }
 }

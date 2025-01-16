@@ -10,7 +10,7 @@ namespace ExtendedRoles.Roles
     [CustomRole(RoleTypeId.NtfCaptain)]
     public class Alpha_0Captain : CustomRole
     {
-        public override uint Id { get; set; } = 14;
+        public override uint Id { get; set; } = 16;
         public override RoleTypeId Role { get; set; } = RoleTypeId.NtfCaptain;
         public override int MaxHealth { get; set; } = 125;
         public override string Name { get; set; } = "Alpha-0 Captain";
